@@ -144,6 +144,6 @@ export default {
 
 <style>
 .admin {
-  background: rgb(157, 160, 160);
+  background: rgb(243, 221, 123);
 }
 </style>
