@@ -1,7 +1,12 @@
 <template>
   <div class="admin">
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
-      <a id="show-sidebar" @click="closeMenu" class="btn btn-sm btn-dark" href="#">
+      <a
+        id="show-sidebar"
+        @click="closeMenu"
+        class="btn btn-sm btn-dark"
+        href="#"
+      >
         <i class="fas fa-bars"></i>
       </a>
       <nav id="sidebar" class="sidebar-wrapper">
@@ -39,7 +44,11 @@
           <div class="sidebar-item sidebar-search">
             <div>
               <div class="input-group">
-                <input type="text" class="form-control search-menu" placeholder="Search..." />
+                <input
+                  type="text"
+                  class="form-control search-menu"
+                  placeholder="Search..."
+                />
                 <div class="input-group-append">
                   <span class="input-group-text">
                     <i class="fa fa-search" aria-hidden="true"></i>
@@ -118,7 +127,7 @@ export default {
   data() {
     return {
       name: null,
-      email: null
+      email: null,
     };
   },
   components: {
@@ -134,16 +143,16 @@ export default {
         .then(() => {
           this.$router.replace("/");
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style>
 .admin {
-  background: rgb(243, 221, 123);
+  background: rgb(231, 222, 178);
 }
 </style>

@@ -36,11 +36,20 @@
             placeholder="Search"
             aria-label="Search"
           />
-          <a
+          <router-link
+            to="/register"
+            class="btn btn-outline-success my-2 my-sm-0"
+            data-toggle="modal"
+            data-target="#register"
+            >Signup</router-link
+          >
+          <router-link
+            to="/login"
             class="btn btn-outline-success my-2 my-sm-0"
             data-toggle="modal"
             data-target="#login"
-          >Login | Signup</a>
+            >Login</router-link
+          >
         </form>
       </div>
     </nav>
@@ -49,7 +58,7 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
 };
 </script>
 

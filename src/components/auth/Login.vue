@@ -29,18 +29,6 @@
                   >Login</a
                 >
               </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  id="pills-register-tab"
-                  data-toggle="pill"
-                  href="#pills-register"
-                  role="tab"
-                  aria-controls="pills-register"
-                  aria-selected="false"
-                  >Signup</a
-                >
-              </li>
             </ul>
 
             <div class="tab-content" id="pills-tabContent">
@@ -72,60 +60,20 @@
                     @keyup.enter="login"
                     v-model="password"
                     class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Password"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <button class="btn btn-primary" @click="login">Login</button>
-                </div>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="pills-register"
-                role="tabpanel"
-                aria-labelledby="pills-register-tab"
-              >
-                <h5 class="text-center">Create New Account</h5>
-
-                <div class="form-group">
-                  <label for="name">Your name</label>
-                  <input
-                    type="text"
-                    v-model="name"
-                    class="form-control"
-                    id="name"
-                    placeholder="Your nice name"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label for="email">Email address</label>
-                  <input
-                    type="email"
-                    v-model="email"
-                    class="form-control"
-                    id="email"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter email"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input
-                    type="password"
-                    v-model="password"
-                    class="form-control"
                     id="password"
                     placeholder="Password"
                   />
                 </div>
 
                 <div class="form-group">
-                  <button class="btn btn-primary" @click="signup">
-                    Signup
-                  </button>
+                  <button class="btn btn-primary" @click="login">Login</button>
+                  <router-link
+                    to="/register"
+                    class="btn btn-outline-success my-2 my-sm-0"
+                    data-toggle="modal"
+                    data-target="#register"
+                    >Signup</router-link
+                  >
                 </div>
               </div>
             </div>
@@ -133,6 +81,7 @@
         </div>
       </div>
     </div>
+    <router-view />
   </div>
 </template>
 
@@ -149,7 +98,6 @@ export default {
   },
   data() {
     return {
-      name: null,
       email: null,
       password: null,
     };
@@ -168,28 +116,6 @@ export default {
           var errorMessage = error.message;
           if (errorCode === "auth/wrong-password") {
             alert("Wrong password.");
-          } else {
-            alert(errorMessage);
-          }
-          console.log(error);
-        });
-    },
-    signup() {
-      fb.auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then(() => {
-          this.email = null;
-          this.password = null;
-          $("#login").modal("hide");
-
-          this.$router.replace("loginsignup");
-        })
-        .catch((error) => {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          if (errorCode == "auth/weak-password") {
-            alert("The password is too weak");
           } else {
             alert(errorMessage);
           }

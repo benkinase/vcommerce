@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
+import Register from "@/components/auth/Register.vue";
+import Login from "@/components/auth/Login.vue";
 import Admin from "../views/Admin.vue";
 import Dashboard from "../views/Dashboard.vue";
 import Products from "../views/Products.vue";
@@ -21,6 +23,16 @@ const routes = [
     path: "/about",
     name: "about",
     component: About,
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: Register,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: Login,
   },
   {
     path: "/admin",

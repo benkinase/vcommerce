@@ -2,7 +2,8 @@
   <div class="home">
     <Header></Header>
     <Hero />
-    <LoginSignup />
+    <Login />
+    <Register />
     <Products />
     <Footer />
   </div>
@@ -14,7 +15,9 @@ import Header from "@/components/Header.vue";
 import Hero from "@/components/Hero.vue";
 import Products from "@/sections/Our-Products.vue";
 import Footer from "@/components/Footer.vue";
-import LoginSignup from "@/components/auth/LoginSignup.vue";
+//import LoginSignup from "@/components/auth/LoginSignup.vue";
+import Register from "@/components/auth/Register.vue";
+import Login from "@/components/auth/Login.vue";
 export default {
   name: "Home",
   components: {
@@ -22,8 +25,9 @@ export default {
     Hero,
     Products,
     Footer,
-    LoginSignup
-  }
+    Register,
+    Login,
+  },
 };
 </script>
 <style lang="scss">

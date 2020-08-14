@@ -2,20 +2,22 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import { fb } from "./firebase";
-import jQuery from "jquery";
+import Vuefirestore from "vue-firestore";
 
-window.$ = window.jQuery = jQuery;
+require("firebase/firestore");
 
-import "./assets/Admin.scss";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
-import "../node_modules/popper.js/dist/popper.min.js";
+// Vue firestore
+Vue.use(Vuefirestore, {
+  key: "id", // the name of the property. Default is '.key'.
+  enumerable: true,
+});
+
 Vue.config.productionTip = false;
 
 // check user status (admin/sessions)
-let app = "";
+let ap = "";
 fb.auth().onAuthStateChanged(function() {
-  if (!app) {
+  if (!ap) {
     new Vue({
       router,
       render: (h) => h(App),
